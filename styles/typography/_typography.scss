@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Helvetica Now';
+    src: url('/fonts/Helvetica-Now-Var.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Helvetica Now', sans-serif;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

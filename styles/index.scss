@@ -1,0 +1,16 @@
+// Tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//@ Abstracts
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+//@ Base
+@import "./base/reset";
+@import "./base/base";
+
+//@ Typography
+@import "./typography/typography";
+@import "./typography/type-scale";

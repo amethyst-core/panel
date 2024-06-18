@@ -1,0 +1,23 @@
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin below($pixels) {
+    @media (max-width: ($pixels - 1)) {
+        @content;
+    }
+}
+
+@mixin above($pixels) {
+    @media (min-width: ($pixels + 1)) {
+        @content;
+    }
+}
+
+@mixin between($lower_pixel, $upper_pixel) {
+    @media (min-width: $lower_pixel) and (max-width: ($upper_pixel - 1)) {
+        @content;
+    }
+}
