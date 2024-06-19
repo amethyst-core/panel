@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Link from "next/link";
 
@@ -20,26 +21,19 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Image from "next/image";
+import Header from "@/components/ui/header";
 
 export default function Login() {
   return (
-    <div className="h-[100vh]">
-      <header className="mx-auto flex items-center justify-between p-6 lg:px-8 border-b border-muted-foreground/10">
-        <Link href="/" className="text-lg">
-          Amethyst <span className="text-primary-foreground">✦</span>
-        </Link>
-        <div className="text-sm">
-          Don&apos;t have an account?
-          <Link
-            href="/auth/signup"
-            className="text-primary-foreground underline-offset-4 hover:underline ml-1"
-          >
-            Create New
-          </Link>
-        </div>
-      </header>
-      <div className="lg:flex lg:items-center lg:justify-between mt-6">
-        <div className="lg:flex-1 flex flex-col justify-space-between h-[100%] max-w-lg mx-12 my-10">
+    <div className="h-[100vh] flex flex-col">
+     <Header
+				text={"Don't have an account? "}
+				link={"/auth/signup"}
+				text2={" Create New"}
+			/>
+
+      <div className="lg:flex lg:items-center lg:justify-between p-[3rem] h-full">
+        <div className="lg:flex-1 flex flex-col justify-between h-full max-w-lg ">
           <div>
             <h1 className="text-5xl tracking-tight">
               Manage Your Amethyst Nodes With Ease
