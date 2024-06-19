@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -18,42 +19,46 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Image from "next/image";
 
 export default function Login() {
   return (
-    <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>Create project</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="Name of your project" />
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Framework</Label>
-              <Select>
-                <SelectTrigger id="framework">
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                  <SelectItem value="next">Next.js</SelectItem>
-                  <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                  <SelectItem value="astro">Astro</SelectItem>
-                  <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+    <div className="h-[100vh]">
+      <header className="mx-auto flex items-center justify-between p-6 lg:px-8 border-b border-muted-foreground/10">
+        <Link href="/" className="text-lg">
+          Amethyst <span className="text-primary-foreground">✦</span>
+        </Link>
+        <div className="text-sm">
+          Don&apos;t have an account?
+          <Link
+            href="/auth/signup"
+            className="text-primary-foreground underline-offset-4 hover:underline ml-1"
+          >
+            Create New
+          </Link>
+        </div>
+      </header>
+      <div className="lg:flex lg:items-center lg:justify-between mt-6">
+        <div className="lg:flex-1 flex flex-col justify-space-between h-[100%] max-w-lg mx-12 my-10">
+          <div>
+            <h1 className="text-5xl tracking-tight">
+              Manage Your Amethyst Nodes With Ease
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              A modern, powerful, and user-friendly admin panel built for
+              Minecraft servers.
+            </p>
           </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="link">Cancel</Button>
-        <Button>Deploy</Button>
-      </CardFooter>
-    </Card>
+
+          <div>
+            <p className="text-sm text-muted-foreground">
+              &copy; 2024 Amethyst. All rights reserved.
+            </p>
+          </div>
+        </div>
+        <div className="mt-6 lg:mt-0 lg:ml-10"></div>
+      </div>
+      <div></div>
+    </div>
   );
 }
