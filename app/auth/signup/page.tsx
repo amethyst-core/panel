@@ -5,7 +5,8 @@ import { useState } from "react";
 import AuthHeader from "@/components/layout/auth/header";
 import AuthFooter from "@/components/layout/auth/footer";
 
-import { LoginAuthForm } from "@/forms/loginAuth";
+import { SignupAuthForm } from "@/forms/signupAuth";
+import Link from "next/link";
 
 export default function Login() {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -15,9 +16,9 @@ export default function Login() {
   return (
     <>
       <AuthHeader
-        text={"Don't have an account? "}
-        link={"/auth/signup"}
-        text2={"Create one"}
+        text={"Already have an account? "}
+        link={"/auth/login"}
+        text2={"Sign in"}
       />
       <div className="flex lg:justify-between pt-16 py-8 px-8 lg:px-16 gap-48 grow">
         <div className="hidden lg:flex flex-col justify-between flex-1">
@@ -45,18 +46,33 @@ export default function Login() {
         <div className="flex-[1]">
           <div className="mx-auto flex w-full flex-col justify-center items-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-3xl tracking-tight">
-                Log in to your account
-              </h1>
+              <h1 className="text-3xl tracking-tight">Create your account</h1>
               <p className="text-sm text-muted-foreground text-center">
                 Enter your email and password below
               </p>
             </div>
-            <LoginAuthForm />
+            <SignupAuthForm />
+            <p className="px-8 pb-2 text-center text-sm text-muted-foreground">
+              By clicking continue, you agree to our{" "}
+              <Link
+                href="/terms"
+                className="text-primary-foreground underline-offset-4 hover:underline ml-1"
+              >
+                Terms of Service
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/privacy"
+                className="text-primary-foreground underline-offset-4 hover:underline ml-1"
+              >
+                Privacy Policy
+              </Link>
+              .
+            </p>
             <AuthFooter
-              text={"Don't have an account? "}
-              link={"/auth/signup"}
-              text2={"Create one"}
+              text={"Already have an account? "}
+              link={"/auth/login"}
+              text2={"Sign in"}
             />
           </div>
         </div>

@@ -5,7 +5,7 @@ import { useState } from "react";
 import AuthHeader from "@/components/layout/auth/header";
 import AuthFooter from "@/components/layout/auth/footer";
 
-import { LoginAuthForm } from "@/forms/loginAuth";
+import { TwoAuthForm } from "@/forms/twoAuth";
 
 export default function Login() {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -44,15 +44,15 @@ export default function Login() {
 
         <div className="flex-[1]">
           <div className="mx-auto flex w-full flex-col justify-center items-center space-y-6 sm:w-[350px]">
-            <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-3xl tracking-tight">
-                Log in to your account
+            <div className="flex flex-col space-y-2">
+              <h1 className="text-3xl tracking-tight text-center">
+                Two Factor Authentication
               </h1>
               <p className="text-sm text-muted-foreground text-center">
-                Enter your email and password below
+                Please enter the code from your authenticator app
               </p>
             </div>
-            <LoginAuthForm />
+            <TwoAuthForm />
             <AuthFooter
               text={"Don't have an account? "}
               link={"/auth/signup"}

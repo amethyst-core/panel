@@ -9,22 +9,20 @@ import { Label } from "@/components/ui/label";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export function LoginAuthForm({ className, ...props }: UserAuthFormProps) {
+export function SignupAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     setIsLoading(true);
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+    setTimeout(() => {}, 1000);
   }
 
   return (
     <div className="flex items-center justify-center">
       <form onSubmit={onSubmit}>
-        <div className="gap-2">
+        <div className="flex-col gap-2">
           <div className="gap-1">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -35,6 +33,7 @@ export function LoginAuthForm({ className, ...props }: UserAuthFormProps) {
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
+              className="w-32"
             />
           </div>
           <div className="pt-4">
