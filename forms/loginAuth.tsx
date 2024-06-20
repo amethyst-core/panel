@@ -37,7 +37,7 @@ export function LoginAuthForm({ className, ...props }: UserAuthFormProps) {
               disabled={isLoading}
             />
           </div>
-          <div className="pt-4">
+          <div className="mt-4">
             <Button disabled={isLoading} className="w-full">
               Continue
             </Button>
