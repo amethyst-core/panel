@@ -52,7 +52,7 @@ export default function Login() {
 					</div>
 				</div>
 
-				<div className="flex-2">
+				<div className="flex-[2_2_0%]">
 					<Card>
 						<CardHeader>
 							<CardTitle>Sign in</CardTitle>
