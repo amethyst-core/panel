@@ -8,7 +8,7 @@ interface Props {
 
 export default function AuthHeader({ text, link, text2 }: Props) {
   return (
-    <header className="mx-auto flex items-center justify-between p-6 lg:px-8 border-b border-muted-foreground/10">
+    <header className="flex items-center justify-between p-6 lg:px-8 border-b border-muted-foreground/10">
       <Link href="/" className="text-lg">
         Amethyst <span className="text-primary-foreground">✦</span>
       </Link>
