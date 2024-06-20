@@ -1,23 +1,23 @@
 "use client";
 
 import * as React from "react";
-import "./auth.scss";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export function SignupAuthForm({ className, ...props }: UserAuthFormProps) {
+export function ResetAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     setIsLoading(true);
 
-    setTimeout(() => {}, 1000);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }
 
   return (
@@ -25,7 +25,6 @@ export function SignupAuthForm({ className, ...props }: UserAuthFormProps) {
       <form onSubmit={onSubmit} className="w-full">
         <div className="flex-col gap-2">
           <div className="form-elements">
-            <Label htmlFor="email">Email</Label>
             <Input
               id="email"
               placeholder="name@example.com"
@@ -35,17 +34,10 @@ export function SignupAuthForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
               disabled={isLoading}
             />
-            <Label htmlFor="password">Password</Label>
-            <PasswordInput
-              id="password"
-              placeholder="********"
-              autoComplete="current-password"
-              disabled={isLoading}
-            />
           </div>
           <div className="mt-4">
             <Button disabled={isLoading} className="w-full">
-              Continue
+              Send Reset Link
             </Button>
           </div>
         </div>

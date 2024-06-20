@@ -12,7 +12,7 @@ export default function AuthFooter({ text, link, text2 }: Props) {
       {text}
       <Link
         href={link}
-        className="text-primary-foreground underline-offset-4 hover:underline ml-1"
+        className="text-primary-foreground underline-offset-4 hover:underline"
       >
         {text2}
       </Link>
