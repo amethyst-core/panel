@@ -43,7 +43,7 @@ export function TwoAuthForm({ className, ...props }: UserAuthFormProps) {
               </InputOTPGroup>
             </InputOTP>
           </div>
-          <div className="pt-4">
+          <div className="mt-4">
             <Button disabled={isLoading} className="w-full">
               Verify
             </Button>
