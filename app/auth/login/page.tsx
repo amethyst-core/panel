@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 import AuthHeader from "@/components/layout/auth/header";
 
@@ -12,6 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -20,14 +24,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import Image from "next/image";
 
 export default function Login() {
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
   return (
     <>
-      <AuthHeader />
-      <div className="flex items-center pt-12 px-16">
-        <div className="flex flex-col justify-between flex-1 min-h-[70vh]">
+      <AuthHeader
+        text={"Don't have an account? "}
+        link={"/auth/signup"}
+        text2={"Create one"}
+      />
+      <div className="lg:flex lg:items-center lg:justify-between p-[3rem] h-full pt-12 px-16 gap-32">
+        <div className="flex flex-col justify-between flex-1 h-full max-w-lg">
           <div>
             <h1 className="text-5xl tracking-tight">
               Manage Your Amethyst Nodes With Ease
@@ -49,40 +70,18 @@ export default function Login() {
           </div>
         </div>
 
-        <div className="flex-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Sign in</CardTitle>
-              <CardDescription>
-                Enter your email and password to sign in
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-6">
-                <div className="grid grid-cols-1 gap-4">
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="password">Password</Label>
-                    <Input
-                      id="password"
-                      type="password"
-                      placeholder="Enter your password"
-                    />
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button type="submit">Sign in</Button>
-            </CardFooter>
-          </Card>
+        <div className="flex-[2]">
+          <div>
+            <Label htmlFor="current_password">Current Password</Label>
+            <PasswordInput
+              id="current_password"
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              autoComplete="current-password"
+              className="my-3"
+            />
+          </div>
+          <Button>Login</Button>
         </div>
       </div>
       <div></div>
