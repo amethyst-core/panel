@@ -53,15 +53,9 @@ export default function Login() {
               </p>
             </div>
             <TwoAuthForm />
-            <AuthFooter
-              text={"Don't have an account? "}
-              link={"/auth/signup"}
-              text2={"Create one"}
-            />
           </div>
         </div>
       </div>
-      <div></div>
     </>
   );
 }

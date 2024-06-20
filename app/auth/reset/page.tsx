@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import AuthHeader from "@/components/layout/auth/header";
-import AuthFooter from "@/components/layout/auth/footer";
 
 import { ResetAuthForm } from "@/forms/resetAuth";
 import Link from "next/link";
@@ -46,24 +45,15 @@ export default function Login() {
         <div className="flex-[1]">
           <div className="mx-auto flex w-full flex-col justify-center items-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-3xl tracking-tight">
-                Reset your password
-              </h1>
+              <h1 className="text-3xl tracking-tight">Reset your password</h1>
               <p className="text-sm text-muted-foreground text-center">
-                We will send you a link to reset
-                your password.
+                We will send you a link to reset your password.
               </p>
             </div>
             <ResetAuthForm />
-            <AuthFooter
-              text={"Already have an account? "}
-              link={"/auth/login"}
-              text2={"Sign in"}
-            />
           </div>
         </div>
       </div>
-      <div></div>
     </>
   );
 }
