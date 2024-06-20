@@ -33,7 +33,7 @@ export function SignupAuthForm({ className, ...props }: UserAuthFormProps) {
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
-              className="w-32"
+             
             />
           </div>
           <div className="pt-4">
