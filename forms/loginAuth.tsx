@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import './auth.scss';
+import { useRouter } from "next/navigation";
+import "./auth.scss";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,12 +15,14 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function LoginAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
+  const router = useRouter();
+
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
     setIsLoading(true);
 
     setTimeout(() => {
-      setIsLoading(false);
+      router.push("verify");
     }, 1000);
   }
 
