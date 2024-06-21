@@ -22,7 +22,7 @@ export default function Login() {
       <div className="flex lg:justify-between pt-16 py-8 px-8 lg:px-16 gap-48 grow">
         <div className="hidden lg:flex flex-col justify-between flex-1">
           <div>
-            <h1 className="text-5xl tracking-tight">
+            <h1 className="text-5xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400">
               Manage Your Amethyst Nodes With Ease
             </h1>
             <p className="mt-4 text-lg font-light text-muted-foreground">
@@ -45,9 +45,7 @@ export default function Login() {
         <div className="flex-[1]">
           <div className="mx-auto flex w-full flex-col justify-center items-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-3xl tracking-tight">
-                Set your new password
-              </h1>
+              <h1 className="text-3xl tracking-tight">Set your new password</h1>
               <p className="text-sm text-muted-foreground text-center">
                 Enter your new password
               </p>

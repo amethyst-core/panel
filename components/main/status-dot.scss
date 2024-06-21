@@ -1,0 +1,14 @@
+.status-dot {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-radius: 999px;
+}
+.status-online {
+    background-color: #4bffa9;
+    box-shadow: 0 0 5px 2px hwb(151 29% 0% / 0.253);
+}
+
+.status-offline {
+    background-color: #8d8d8d;
+}

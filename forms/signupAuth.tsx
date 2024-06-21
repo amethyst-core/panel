@@ -20,7 +20,7 @@ export function SignupAuthForm({ className, ...props }: UserAuthFormProps) {
     setIsLoading(true);
 
     setTimeout(() => {
-      router.push("/");
+      router.push("/nodes");
     }, 1000);
   }
 

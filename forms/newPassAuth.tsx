@@ -17,7 +17,7 @@ export function NewPassAuthForm({ className, ...props }: UserAuthFormProps) {
     setIsLoading(true);
 
     setTimeout(() => {
-      router.push("/");
+      router.push("/nodes");
     }, 1000);
   }
 
