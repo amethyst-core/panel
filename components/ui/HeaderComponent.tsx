@@ -16,9 +16,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({ onClick }) => {
 			if (activeItem) {
 				const rect = activeItem.getBoundingClientRect();
 				setActiveBarStyle({
-					transform: `translateX(${
-						rect.left + rect.width / 2
-					}px) translateX(-50%) scaleX(1)`,
+					transform: `translateX(${rect.left}px)`,
 					width: `${rect.width}px`,
 				});
 			}
@@ -40,10 +38,10 @@ const HeaderComponent: React.FC<HeaderProps> = ({ onClick }) => {
 	};
 
 	return (
-		<header className="h-[2rem] ">
-			<nav className="absolute h-[2rem]">
+		<header className="h-[3rem] customShadow">
+			<nav className="absolute h-[3rem]">
 				<ul
-					className="px-4"
+					className=""
 					ref={navRef}
 				>
 					<li
