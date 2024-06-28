@@ -12,3 +12,43 @@
 .status-offline {
     background-color: #8d8d8d;
 }
+.tabs {
+
+    .tab-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+    }
+  
+    .tab-list-item {
+      margin: 0 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: #ababab;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+  
+      &.tab-list-active {
+        border-bottom: 2px solid #ffffff;
+        font-weight: bold;
+        color: #ffffff;
+      }
+    }
+  
+    .tab-content {
+      padding: 20px;
+      border-top: none;
+      transition: opacity 0.3s ease;
+  
+      &.tab-content-hidden {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+      }
+  
+      &.tab-content-visible {
+        opacity: 1;
+      }
+    }
+  }
+  
