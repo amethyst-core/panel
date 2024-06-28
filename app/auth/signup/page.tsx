@@ -23,7 +23,7 @@ export default function Login() {
       <div className="flex lg:justify-between pt-16 py-8 px-8 lg:px-16 gap-48 grow">
         <div className="hidden lg:flex flex-col justify-between flex-1">
           <div>
-            <h1 className="text-5xl tracking-tight">
+            <h1 className="text-5xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400">
               Manage Your Amethyst Nodes With Ease
             </h1>
             <p className="mt-4 text-lg font-light text-muted-foreground">
@@ -53,14 +53,14 @@ export default function Login() {
             </div>
             <SignupAuthForm />
             <p className="px-8 pb-2 text-center text-sm text-muted-foreground">
-              By clicking continue, you agree to our{" "}
+              By clicking continue, you agree to our
               <Link
                 href="/terms"
                 className="text-primary-foreground underline-offset-4 hover:underline ml-1"
               >
                 Terms of Service
               </Link>{" "}
-              and{" "}
+              and
               <Link
                 href="/privacy"
                 className="text-primary-foreground underline-offset-4 hover:underline ml-1"
