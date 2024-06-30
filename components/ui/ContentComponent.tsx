@@ -21,7 +21,7 @@ const ContentComponent: React.FC<ContentProps> = ({ section }) => {
       content = <div>No content selected</div>;
   }
 
-  return <div>{content}</div>;
+  return <div className='pt-10 pl-4'>{content}</div>;
 };
 
 export default ContentComponent;

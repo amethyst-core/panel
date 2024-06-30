@@ -17,9 +17,13 @@ module.exports = {
         "2xl": "1400px",
       },
     },
-    extend: {flex: {
-      '2': '2 2 0%'
-    },
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-helvetica)']
+      },
+      flex: {
+        '2': '2 2 0%'
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -1,7 +1,8 @@
 "use client";
 
-import * as React from "react";
+import { Suspense } from "react";
 import Command from "@/components/main/command";
+import { Navbar } from "./_components/navbar";
 
 export default function MainLayout({
   children,
@@ -9,9 +10,10 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col min-h-dvh">
-      <Command/>
-      {children}
-    </div>
+    <>
+      <Navbar />
+      <div className="flex flex-col min-h-dvh">{children}</div>
+      <Command />
+    </>
   );
 }
