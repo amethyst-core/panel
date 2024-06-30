@@ -25,7 +25,7 @@ export function TwoAuthForm({ className, ...props }: UserAuthFormProps) {
     setIsLoading(true);
 
     setTimeout(() => {
-      router.push("/nodes");
+      router.push("/");
     }, 1000);
   }
 

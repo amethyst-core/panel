@@ -1,20 +1,25 @@
-import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useState } from "react";
 
-export function Navbar() {
+const Navbar = ({ tabs }) => {
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
-    <nav className="flex items-center justify-between shadow-sm p-4 lg:px-8 bg-[#1a1a1a]">
-      <Link href="/" className="text-2xl lg:text-lg select-none">
-        Amethyst <span className="text-primary-foreground">✦</span>
-      </Link>
-      <div>
-        <Link href="/settings">
-          <Avatar>
-            <AvatarImage src="https://github.com/swargaraj.png" />
-            <AvatarFallback>SW</AvatarFallback>
-          </Avatar>
-        </Link>
+    <div className="px-4">
+      <div className="flex">
+        {tabs.map((tab, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveTab(index)}
+            className={`px-4 py-2 focus:outline-none ${
+              activeTab === index ? "border-b-2" : ""
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
-    </nav>
+    </div>
   );
-}
+};
+
+export default Navbar;

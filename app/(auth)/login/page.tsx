@@ -16,13 +16,13 @@ export default function Login() {
     <>
       <AuthHeader
         text={"Don't have an account? "}
-        link={"/auth/signup"}
+        link={"/signup"}
         text2={"Create one"}
       />
       <div className="flex lg:justify-between pt-16 py-8 px-8 lg:px-16 gap-48 grow">
         <div className="hidden lg:flex flex-col justify-between flex-1">
           <div>
-            <h1 className="text-5xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400">
+            <h1 className="text-5xl tracking-tight">
               Manage Your Amethyst Nodes With Ease
             </h1>
             <p className="mt-4 text-lg font-light text-muted-foreground">
@@ -55,7 +55,7 @@ export default function Login() {
             <LoginAuthForm />
             <AuthFooter
               text={"Don't have an account? "}
-              link={"/auth/signup"}
+              link={"/signup"}
               text2={"Create one"}
             />
           </div>

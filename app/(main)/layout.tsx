@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import Command from "@/components/main/command";
-import { Navbar } from "./_components/navbar";
+import { Header } from "./_components/header";
 
 export default function MainLayout({
   children,
@@ -11,8 +11,8 @@ export default function MainLayout({
 }>) {
   return (
     <>
-      <Navbar />
-      <div className="flex flex-col min-h-dvh">{children}</div>
+      <Header />
+      <div className="flex flex-col min-h-dvh bg-secondary-foreground">{children}</div>
       <Command />
     </>
   );
