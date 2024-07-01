@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
-const HomePage: React.FC = () => {
-  return <div></div>;
-};
 
-export default HomePage;
+import Nodes from "./nodes/page";
+
+export default function Dashboard() {
+  return <Nodes />;
+}

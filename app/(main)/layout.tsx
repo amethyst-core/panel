@@ -10,10 +10,10 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <div className="min-h-dvh bg-secondary-foreground">
       <Header />
-      <div className="flex flex-col min-h-dvh bg-secondary-foreground">{children}</div>
+      <div className="p-8">{children}</div>
       <Command />
-    </>
+    </div>
   );
 }
