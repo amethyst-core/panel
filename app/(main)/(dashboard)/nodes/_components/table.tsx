@@ -28,12 +28,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-
 import { MoreHorizontal } from "lucide-react";
-
 import { toast } from "sonner";
+import Link from "next/link";
 
 const data: NodesData[] = [
   {
@@ -100,7 +108,7 @@ export const columns: ColumnDef<NodesData>[] = [
   },
 ];
 
-export async function NodesTable() {
+export function NodesTable() {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   const table = useReactTable({
@@ -115,8 +123,6 @@ export async function NodesTable() {
     },
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 500));
-
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
@@ -130,9 +136,23 @@ export async function NodesTable() {
           }
           className="max-w-sm"
         />
-        <Button variant="outline" className="ml-auto">
-          Connect Node
-        </Button>
+        {/* Separate these from table/tsx */}
+        <Dialog>
+          <DialogTrigger>
+            <Button variant="outline" className="ml-auto">
+              Connect Node
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Are you absolutely sure?</DialogTitle>
+              <DialogDescription>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </div>
       <div className="rounded-md border">
         <Table>
@@ -160,6 +180,7 @@ export async function NodesTable() {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className="cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -230,17 +251,17 @@ export function NodesTableSkeleton() {
               </TableCell>
             </TableRow>
           </TableHeader>
-          <TableBody>
-            {[...Array(3)].map((_, index) => (
+          <TableBody className="py-12">
+            {[...Array(2)].map((_, index) => (
               <TableRow key={index}>
                 <TableCell>
-                  <Skeleton className="h-4 w-24" />
+                  <Skeleton className="h-6 w-24" />
                 </TableCell>
                 <TableCell>
-                  <Skeleton className="h-4 w-36" />
+                  <Skeleton className="h-6 w-36" />
                 </TableCell>
                 <TableCell>
-                  <Skeleton className="h-4 w-10" />
+                  <Skeleton className="h-6 w-10" />
                 </TableCell>
               </TableRow>
             ))}
