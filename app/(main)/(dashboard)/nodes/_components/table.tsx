@@ -115,7 +115,7 @@ export async function NodesTable() {
     },
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
   return (
     <div className="w-full">
@@ -128,7 +128,7 @@ export async function NodesTable() {
           onChange={(event) =>
             table.getColumn("nodename")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm lg:max-w-lg"
+          className="max-w-sm"
         />
         <Button variant="outline" className="ml-auto">
           Connect Node
@@ -210,7 +210,11 @@ export async function NodesTable() {
 
 export function NodesTableSkeleton() {
   return (
-    <div className="w-full py-4">
+    <div className="w-full">
+      <div className="flex items-center py-4">
+        <Skeleton className="w-96 h-10" />
+        <Skeleton className="w-36 h-10 ml-auto" />
+      </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader className="border-b">
@@ -227,7 +231,7 @@ export function NodesTableSkeleton() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {[...Array(5)].map((_, index) => (
+            {[...Array(3)].map((_, index) => (
               <TableRow key={index}>
                 <TableCell>
                   <Skeleton className="h-4 w-24" />
@@ -242,6 +246,11 @@ export function NodesTableSkeleton() {
             ))}
           </TableBody>
         </Table>
+      </div>
+      <div className="flex items-center justify-end space-x-2 py-4">
+        <div className="space-x-2">
+          <Skeleton className="w-36 h-10" />
+        </div>
       </div>
     </div>
   );
