@@ -12,9 +12,9 @@ export default function Nodes() {
           You can manage your nodes from here.
         </p>
       </div>
-      {/* <Suspense fallback={<NodesTableSkeleton />}> */}
-        <NodesTableSkeleton />
-      {/* </Suspense> */}
+      <Suspense fallback={<NodesTableSkeleton />}>
+        <NodesTable />
+      </Suspense>
     </>
   );
 }

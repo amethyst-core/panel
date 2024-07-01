@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   ColumnDef,
@@ -100,7 +100,7 @@ export const columns: ColumnDef<NodesData>[] = [
   },
 ];
 
-export function NodesTable() {
+export async function NodesTable() {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   const table = useReactTable({
@@ -114,6 +114,8 @@ export function NodesTable() {
       columnFilters,
     },
   });
+
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   return (
     <div className="w-full">
@@ -212,10 +214,32 @@ export function NodesTableSkeleton() {
       <div className="rounded-md border">
         <Table>
           <TableHeader className="border-b">
-            <Skeleton className="h-12 w-full" />
+            <TableRow>
+              <TableCell>
+                <Skeleton className="h-4 w-24" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="h-4 w-36" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="h-4 w-10" />
+              </TableCell>
+            </TableRow>
           </TableHeader>
           <TableBody>
-            <Skeleton className="h-12 w-full" />
+            {[...Array(5)].map((_, index) => (
+              <TableRow key={index}>
+                <TableCell>
+                  <Skeleton className="h-4 w-24" />
+                </TableCell>
+                <TableCell>
+                  <Skeleton className="h-4 w-36" />
+                </TableCell>
+                <TableCell>
+                  <Skeleton className="h-4 w-10" />
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </div>
