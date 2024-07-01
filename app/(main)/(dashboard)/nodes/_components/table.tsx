@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import {
-  ColumnDef,
   ColumnFiltersState,
   flexRender,
   getCoreRowModel,
@@ -22,89 +21,34 @@ import {
 import { Input } from "@/components/ui/input";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogFooter,
 } from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MoreHorizontal } from "lucide-react";
-import { toast } from "sonner";
-import Link from "next/link";
+import { Label } from "@/components/ui/label";
 
+import { columns, NodesData } from "./columns";
+
+// Dummy Data
 const data: NodesData[] = [
   {
     id: "m5gr84i9",
+    name: "New Minecraft",
+    host: "237.84.2.178",
     status: "online",
-    nodename: "Node #2 (US)",
   },
   {
     id: "3u1reuv4",
+    name: "Friend's Server",
+    host: "244.178.44.111",
     status: "offline",
-    nodename: "Node #1 (EU)",
-  },
-];
-
-export type NodesData = {
-  id: string;
-  status: "online" | "offline";
-  nodename: string;
-};
-
-export const columns: ColumnDef<NodesData>[] = [
-  {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
-    ),
-  },
-  {
-    accessorKey: "nodename",
-    header: ({ column }) => {
-      return <span>Node Name</span>;
-    },
-    cell: ({ row }) => <div>{row.getValue("nodename")}</div>,
-  },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const node = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem
-              onClick={() => {
-                navigator.clipboard.writeText(node.id);
-                toast.success("Node ID copied");
-              }}
-              className="cursor-pointer"
-            >
-              Copy Node ID
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
   },
 ];
 
@@ -128,29 +72,53 @@ export function NodesTable() {
       <div className="flex items-center py-4">
         <Input
           placeholder="Search"
-          value={
-            (table.getColumn("nodename")?.getFilterValue() as string) ?? ""
-          }
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("nodename")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
         {/* Separate these from table/tsx */}
         <Dialog>
-          <DialogTrigger>
+          <DialogTrigger asChild>
             <Button variant="outline" className="ml-auto">
               Connect Node
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
-              <DialogTitle>Are you absolutely sure?</DialogTitle>
+              <DialogTitle>Connect New Node</DialogTitle>
               <DialogDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
+                Enter the details of the new node you would like to connect.
               </DialogDescription>
             </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name">Name</Label>
+                <Input
+                  id="name"
+                  placeholder="New Node"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="host">Host</Label>
+                <Input
+                  id="host"
+                  placeholder="127.0.0.1"
+                  className="col-span-3"
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="username">Port</Label>
+                <Input id="port" placeholder="17771" className="col-span-3" />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button type="submit" variant={"outline"}>
+                Connect
+              </Button>
+            </DialogFooter>
           </DialogContent>
         </Dialog>
       </div>
@@ -177,11 +145,7 @@ export function NodesTable() {
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                  className="cursor-pointer"
-                >
+                <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
                       {flexRender(
