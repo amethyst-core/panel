@@ -48,7 +48,7 @@ export const columns: ColumnDef<NodesData>[] = [
       <div className="flex items-center">
         {row.getValue("host")}
         <Files
-          className="h-4 w-4 text-muted-foreground ml-2"
+          className="h-4 w-4 text-muted-foreground ml-2 cursor-pointer"
           onClick={() => {
             navigator.clipboard.writeText(row.getValue("host"));
             toast.success("Host copied to clipboard", {
@@ -62,7 +62,14 @@ export const columns: ColumnDef<NodesData>[] = [
   {
     accessorKey: "id",
     header: "",
-    cell: ({ row }) => <Link href={"/node/" + row.getValue("id")} className="hover:underline underline-offset-4">View</Link>,
+    cell: ({ row }) => (
+      <Link
+        href={"/node/" + row.getValue("id")}
+        className="hover:underline underline-offset-4"
+      >
+        View
+      </Link>
+    ),
   },
   {
     id: "actions",
