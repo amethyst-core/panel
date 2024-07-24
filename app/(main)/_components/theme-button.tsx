@@ -19,8 +19,8 @@ export function ThemeButton() {
   return (
     <Button
       variant="ghost"
-      className="text-muted-foreground"
       onClick={toggleTheme}
+      size="icon"
     >
       {theme === "dark" ? (
         <Sun className="h-5 w-5" />
