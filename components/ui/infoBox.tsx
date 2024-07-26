@@ -25,13 +25,13 @@ const InfoBox: React.FC<InfoBoxProps> = ({
 		<div className="border-2 border-[#1A2123] rounded-lg flex flex-col flex-1">
 			<div className="border-t-2 border-[#1A2123] flex justify-between p-4">
 				<div className="flex items-center gap-2">
-					<Icon />
-					<p>{title}</p>
+					< Icon className="text-[#ffffffb5]"/>
+					<p className="text-[#ffffffb5]">{title}</p>
 				</div>
 				<div>
 					<p>
 						{percentage}
-						<small>.{decimal}%</small>
+						<small className="text-[#ffffff80]">.{decimal}%</small>
 					</p>
 				</div>
 			</div>
@@ -59,8 +59,8 @@ const InfoBox: React.FC<InfoBoxProps> = ({
 					>
 						{Object.entries(item).map(([key, value]) => (
 							<>
-								<p>{key}</p>
-								<p>{value}</p>
+								<p className="text-[#ffffffb5]">{key}</p>
+								<p className="text-[#ffffff80]">{value}</p>
 							</>
 						))}
 					</div>
