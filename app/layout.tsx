@@ -1,8 +1,9 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
-import localFont from "@next/font/local";
+import { ThemeProvider } from "@/lib/theme-provider";
+
+import localFont from "next/font/local";
 
 export const metadata: Metadata = {
   title: "Amethyst",
@@ -28,8 +29,8 @@ export default function RootLayout({
       <body className="min-h-svh">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          // enableSystem
+          defaultTheme="dark"
+          enableSystem
           disableTransitionOnChange
         >
           {children}

@@ -1,11 +1,15 @@
 "use client";
 
-import { Suspense } from "react";
-import Command from "@/components/main/command";
-import { Header } from "./_components/header";
-import { useTheme } from "next-themes";
-import NextTopLoader from "nextjs-toploader";
 import { useEffect, useState } from "react";
+import Command from "@/components/main/command";
+
+import { useTheme } from "next-themes";
+
+import NextTopLoader from "nextjs-toploader";
+
+// Import layout components
+import Header from "./_components/layout/header";
+
 import { Toaster } from "sonner";
 
 export default function MainLayout({
@@ -32,8 +36,8 @@ export default function MainLayout({
         showSpinner={false}
         height={2}
       />
-      <Header />
-      <div>
+      <div className="flex flex-col h-screen">
+        <Header />
         {children}
         <Toaster position="bottom-center" />
       </div>
